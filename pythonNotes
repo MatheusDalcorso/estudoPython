@@ -1,0 +1,662 @@
+comentário em python é criado com #
+
+#cria variável
+message = "Hello, world!"
+
+
+strings podem ser criadas usando aspas duplas ou simples, 
+o problema é que se quiser usar simples e usar aspas dentro da string, 
+vai precisar usar barra invertida antes dela, tipo assim:
+message = 'matheus\'s world'
+assim o python sabe que essa aspas no meio da string não fecha a string
+o mesmo vale pra uma aspas dupla no meio da string
+
+#message = "matheus's world"
+#message = 'matheus\'s world'
+
+#message = 'matheus"s world'
+#message = "matheus\"s world"
+
+então a melhor vai depender da situação, use de acordo
+
+
+To add a tab to your text, use the character combination
+\t:
+>>> print("Python")
+Python
+>>> print("\tPython")
+	Python
+
+To add a newline in a string, use the character
+combination \n:
+>>> print("Languages:\nPython\nC\nJavaScript")
+Languages:
+Python
+C
+JavaScript
+
+pode combinar os dois também
+
+
+3 aspas (simples ou duplas, tanto faz) são usadas pra criar uma string de multiplas linhas
+message = """Hello, 
+world!"""
+imprime em duas linhas no terminal
+Hello,
+world!
+
+
+lstrip() rstrip() e strip() tiram espaço vazio da esquerda direita e dos dois
+
+.removeprefix() tira o prefixo e devolve o resto da string. Se não acha o prefixo ele só devolve a string original
+nostarch_url = 'https://nostarch.com'
+nostarch_url.removeprefix('https://')
+'nostarch.com'
+removesuffix() funciona igual o remove prefix, mas no final da frase
+
+#printa o numero de chars da string
+print(len(message))
+
+
+#printa o char da posição, tratando a string como um array
+print(message[0])
+tentar acessar uma posição inexistente gera erro, 
+diferente do c que deixa e volta um valor alocado naquele espaço de memoria
+
+
+#printa do espaço 0 até o 5, mas não incluindo o 5
+print(message[0:5])
+então no caso de "Hello, world!" ele imprime Hello (0, 1, 2, 3 ,4)
+se for começar do 0 de uma string, pode suprimir o 0 que ele vai assumir que começa do 0
+print(message[:5])
+o mesmo vale se quiser ir até o final da string
+print(message[7:])
+O nome disso é Slicing (https://www.w3schools.com/python/python_strings_slicing.asp , 
+https://www.youtube.com/watch?v=ajrtAuDg3yw )
+
+
+# Print hello world, mas o .lower() deixa tudo em minusculo
+print(message.lower())
+
+
+# Print hello world, mas o .upper() deixa tudo em maiusculo
+print(message.upper())
+
+
+#.
+(argumento) conta o numero de vezes que aparece o argumento, no caso de 'Hello', aparece 1
+#.count('l') ele printa 3, pois aparecem 3 vezes
+print(message.count('l'))
+
+
+# .find(argumento) vai printar onde começa oque vc quer achar, no caso de Hello ele mostra 0
+#no caso de world ele mostra 7
+#se o argumento não existir ele mostra -1
+#se tiver mais q um ele mostra a posição do primeiro, com l ele mostra 2
+print(message.find('l'))
+  
+
+#.replace(argumento_a_ser_substituido, argumento_substituto)
+# no caso de baixo ele troca world por universe, mas esse retorno precisa ir para uma variavel
+# só fazer message.replace('world', 'universe') não funciona para o print abaixo
+new_message = message.replace('world', 'universe')
+message = message.replace('world', 'universe')
+print(message)
+print(new_message)
+
+
+Concatenando strings pra usar em outra frase pode ser feito manualmente assim:
+
+greeting = "Hello"
+name = "Matheus"
+message = greeting + ', ' + name + '. Welcome!'
+
+mas pra coisas mais compridas é mais facil usar o .format:
+
+messageFormat = '{}, {}. Welcome!'.format(greeting, name)
+
+{} substitui variáveis, que depois são passadas no .format como argumentos.
+pra python 3.6 ou acima pode ser usado F-strings, que é ainda mais simples
+
+messageFString = f'{greeting}, {name}. Welcome!'
+
+com ela a variavel é colocada dentro das chaves, facilitando a visualização. 
+O .format deixa de existir, agora é colocado um f antes de começar a string
+Outra utilidade dela é a possibilidade de encrever código dentro do espaço reservado da variavel
+
+messageFString = f'{greeting}, {name.upper()}. Welcome!'
+
+aqui foi usado um upper dentro, para deixar o nome em maiusculo
+
+
+
+
+*************ALGO MUITO UTIL PARA SE LEMBRAR*************
+dir(object) retorna todas as propriedades e métodos do objeto especificado, sem os valores
+então usando assim print(dir(message)) o terminal imprime isso:
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+que são os metodos que podemos usar nesse objeto string. Dá pra notar alguns que já usei
+como o upper, lower, count, len e etc
+https://www.w3schools.com/python/ref_func_dir.asp
+
+ele não dá nenhuma informação sobr os metodos, para isso a gente pode usar o help():
+help(str)
+printa:
+Help on class str in module builtins:
+
+class str(object)
+ |  str(object='') -> str
+ |  str(bytes_or_buffer[, encoding[, errors]]) -> str
+ |
+ |  Create a new string object from the given object. If encoding or
+ |  errors is specified, then the object must expose a data buffer
+ |  that will be decoded using the given encoding and error handler.
+ |  Otherwise, returns the result of object.__str__() (if defined)
+ |  or repr(object).
+ |  encoding defaults to 'utf-8'.
+ |  errors defaults to 'strict'.
+ |
+ |  Methods defined here:
+ |
+ |  __add__(self, value, /)
+ |      Return self+value.
+ |
+ ...
+ |  lower(self, /)
+ |      Return a copy of the string converted to lowercase.
+ ...
+pra ver a documentação relacionada com strings
+https://www.geeksforgeeks.org/python/help-function-in-python/
+
+pode ser passado com um metodo especifico dentro, help(str.upper) printa:
+Help on method_descriptor:
+
+upper(self, /) unbound builtins.str method
+    Return a copy of the string converted to uppercase.
+*********************************************************
+
+
+
+
+type() é usado para descobrir o tipo do objeto
+
+number = 1.2
+print(type(number))
+
+printa <class 'float'>
+
+number = 1
+printa <class 'int'>
+
+
+# Arithmetic Operators:
+# Addition:       3 + 2
+# Subtraction:    3 - 2
+# Multiplication: 3 * 2
+# Division:       3 / 2
+# Floor Division: 3 // 2
+# Exponent:       3 ** 2 (= 3²)
+# Modulus:        3 % 2
+
+# Floor division is a division operation that returns the largest integer 
+# that is less than or equal to the result of the division.
+# In Python, it is denoted by the double forward slash '//'. https://www.geeksforgeeks.org/python/floor-division-in-python/#what-is-floor-division
+
+
+# Comparisons:
+# Equal:            3 == 2
+# Not Equal:        3 != 2
+# Greater Than:     3 > 2
+# Less Than:        3 < 2
+# Greater or Equal: 3 >= 2
+# Less or Equal:    3 <= 2
+
+
+num += 1 essa abreviação funciona para todas operações
+
+Absolute value of an integer(funciona com float também)
+abs(numero)
+print(abs(-3)) -> 3
+basicamente tira o sinal negativo do numero
+
+
+round(numero, quantasCasasQuerArredondarPara)
+segundo argumento é opcional
+print(round(3.2)) -> 3
+print(round(3.5)) -> 4
+print(round(3.59, 1)) -> 3.6
+print(round(3.1415, 2)) -> 3.14
+
+
+num1 = '100'
+num2 = '200'
+
+print(num1 + num2): -> 100200
+pq são strings, então pra somar eles precisa fazer casting (https://www.w3schools.com/python/python_casting.asp)
+
+num1 = int(num1)
+num2 = int(num2)
+
+print(num1 + num2): -> 300
+
+
+courses = ['history', 'math', 'phisics', 'compSci']
+#print(len(courses)) -> 4
+
+print(courses[0]) -> history
+
+também pode ser acessado com numero negativo, ai começa pelo final da lista
+print(courses[-1]) -> compSci
+print(courses[-4]) -> history
+-5 no caso da erro
+
+é pratico pra pegar o ultimo item da lista, pois mesmo q adicionem coisas novas o -1 sempre será o ultimo item
+
+print(courses[0:2]) -> ['history', 'math']  ([0 , 1])
+segue a mesma regra da linha 42, começa do 0 e vai até o 2, mas não inclui o 2
+courses[:2] assume q quer começar do 0
+courses[0:] assume q quer ir até o final
+o nome disso é slicing
+
+
+courses.append('art') adiciona o valor 'art' no final da lista courses
+->['history', 'math', 'phisics', 'compSci', 'art']
+
+insert leva 2 argumentos, o index onde o valor será inserido e o valor a ser inserido
+courses.insert(0,'portuguese')
+->['portuguese', 'history', 'math', 'phisics', 'compSci']
+
+o insert não funciona direito pra adicionar outra lista em uma existente, se fizer ele literalmente coloca 1 lista dentro da outra
+o append também não funciona, ele também coloca uma lista dentro da outra
+courses_2 = ['geography', 'physicalEd']
+courses.insert(0,courses_2)
+-> [['geography', 'physicalEd'], 'portuguese', 'history', 'math', 'phisics', 'compSci', 'art']
+agora a courses[0] -> ['geography', 'physicalEd']
+pra adicionar os valores de uma lista para outra é usado o extend
+courses.extend(courses_2) só leva um argumento, que é a lista que vai ser adicionada a outra
+-> ['portuguese', 'history', 'math', 'phisics', 'compSci', 'art', 'geography', 'physicalEd']
+
+
+# .remove(valor) é usado para remover o valor da lista
+courses.remove('math')
+#.pop() é usado para remover o ultimo valor da lista. Uma coisa legal dele é que ele retorna o valor que removeu da lista, então você pode pegar esse valor para usar em outra coisa
+popped = courses.pop()
+
+print(popped) -> physicalEd
+
+
+.reverse() inverte as posiçoes de uma lista. Primeiro vira ultimo, ultimo vira primeiro e etc
+courses.reverse() -> ['geography', 'art', 'compSci', 'phisics', 'history', 'portuguese']
+
+.sort() organiza em alfabética, ou do menor pro maior se for numeros. Ele aceita o argumento reverse, que arruma do maior pro menor .sort(reverse=True)
+numList = [50, 84, 37, 5, 0]
+numList.sort()
+print(numList) -> [0, 5, 37, 50, 84]
+
+
+pra obter a lista organiza sem mudar a ordem original da lista pode ser usado a função sorted()
+ela retorna a lista organizada sem mexer com a original, como o valor é retornado ele pode ser guardado em uma variavel
+(numListOrganizada = sorted(numList))
+numList = [50, 84, 37, 5, 0]
+
+print(numList) -> [50, 84, 37, 5, 0]
+print(sorted(numList)) ->  [0, 5, 37, 50, 84]
+
+
+min() seleciona o menor numero ou primeira string em ordem alfabetica
+
+max() faz a mesma coisa so q ao contrário. O maior ou o ultimo na ordem alfabetica
+
+sum() soma os numeros
+
+
+pra achar o index de um valor em uma lista, podemos usar .index(valor) na lista
+courses.index('compSci') por exemplo, vai printar 3
+(['portuguese', 'history', 'phisics', 'compSci', 'art', 'geography', 'physicalEd'])
+
+
+pra checar se um valor existe em uma lista e receber um bool como retorno usamos o operador 'in'
+print('art' in courses) -> True
+
+
+#loop pra printar todos os itens da lista courses
+for course in courses:
+    print(course)
+-> portuguese
+   history
+   phisics...
+
+
+pra pegar o index no loop, usamos enumerate()
+for index, course in enumerate(courses):
+    print(index, course)
+-> 0 portuguese
+   1 history
+   2 phisics
+   3 compSci...
+
+da pra começar em um index especifico usando o enumerate(variavel, start=x)
+for index, course in enumerate(courses, start=3):
+    print(index, course)
+-> 3 portuguese
+   4 history
+   5 phisics...
+
+
+
+pra transormar uma lista em string usamos um metodo da string chamado .join
+courses_str = ', '.join(courses)
+print(courses_str) -> portuguese, history, phisics, compSci, art, geography, physicalEd
+
+com ' - '-> portuguese - history - phisics - compSci - art - geography - physicalEd
+
+pra fazero caminho reverso disso e transormar a string em lista usamos .split separando em uma parte especifica da string
+new_list = courses_str.split(' - ')
+
+print(new_list) -> ['portuguese', 'history', 'phisics', 'compSci', 'art', 'geography', 'physicalEd']
+
+
+
+
+tuples são parecidas com listas, mas com uma diferença importante, tuples são imutaveis enquanto listas são mutaveis
+# Mutable
+list_1 = ['History', 'Math', 'Physics', 'CompSci']
+list_2 = list_1
+
+print(list_1)
+print(list_2)
+
+# list_1[0] = 'Art'
+
+# print(list_1)
+# print(list_2)
+
+no caso de cima, mudando o valor da lista 1, ele muda da 2 também. Não tenho certeza, mas acho q é pq a 2 só aponta pro mesmo endereço de memória q a 1
+seja oq for eu não gostei q funciona assim(explicação do chatgpt abaixo)
+
+# Immutable
+# tuple_1 = ('History', 'Math', 'Physics', 'CompSci')
+# tuple_2 = tuple_1
+
+# print(tuple_1)
+# print(tuple_2)
+
+# tuple_1[0] = 'Art'
+
+# print(tuple_1)
+# print(tuple_2)
+
+
+listas e tuples funcionam iguais na hora de usar um for pra acessar conteudo, acessar um index especifico, etc.
+Mas tuple não consegue receber uma mudança de valor (TypeError: 'tuple' object does not support item assignment)
+então se precisar mudar valor de algo, use lista. Se só for consultar, use tuple.
+tuple possui menos metodos, pois muitas funções da lista são para mudança de valores.
+
+
+
+explicação do chatgpt:
+Referência (apontando pro mesmo objeto)
+list_1 = ['History', 'Math', 'Physics', 'CompSci']
+list_2 = list_1  # apenas uma referência, não cria nova lista
+
+list_1[0] = 'Art'
+
+print("list_1:", list_1)
+print("list_2:", list_2)
+print("Mesmo objeto?", id(list_1) == id(list_2))
+
+Saída:
+list_1: ['Art', 'Math', 'Physics', 'CompSci']
+list_2: ['Art', 'Math', 'Physics', 'CompSci']
+Mesmo objeto? True
+
+
+Cópia rasa (copy())(shallow copy)
+list_1 = ['History', 'Math', 'Physics', 'CompSci']
+list_2 = list_1.copy()  # cria uma nova lista
+
+list_1[0] = 'Art'
+
+print("list_1:", list_1)
+print("list_2:", list_2)
+print("Mesmo objeto?", id(list_1) == id(list_2))
+
+Saída:
+list_1: ['Art', 'Math', 'Physics', 'CompSci']
+list_2: ['History', 'Math', 'Physics', 'CompSci']
+Mesmo objeto? False
+
+
+Diferença quando há listas dentro de listas
+É aqui que a cópia rasa e a cópia profunda se diferenciam.
+import copy
+
+list_1 = [['History', 'Math'], ['Physics', 'CompSci']]
+
+# cópia rasa
+list_2 = list_1.copy()
+
+# cópia profunda
+list_3 = copy.deepcopy(list_1)
+
+# alterando um elemento interno da lista original
+list_1[0][0] = 'Art'
+
+print("list_1:", list_1)
+print("list_2 (shallow):", list_2)
+print("list_3 (deep):", list_3)
+
+Saída:
+list_1: [['Art', 'Math'], ['Physics', 'CompSci']]
+list_2 (shallow): [['Art', 'Math'], ['Physics', 'CompSci']]
+list_3 (deep): [['History', 'Math'], ['Physics', 'CompSci']]
+
+Perceba:
+copy() (cópia rasa) ainda compartilha referências internas, por isso list_2 mudou junto.
+deepcopy() cria objetos totalmente independentes, então list_3 ficou intacta.
+
+
+
+sets são valores que são desordenados e não tem duplicas
+cs_courses = {'History', 'Math', 'Physics', 'CompSci', 'Math'}
+
+print(cs_courses)-> {'Math', 'Physics', 'History', 'CompSci'}
+rodando denovo-> {'History', 'CompSci', 'Physics', 'Math'}
+
+dá pra ver que são desordenados e não tem valores duplicados, na criação coloquei mais um Math, mas ele ignora pois está repetido
+também ignora a ordem estabelecida na criação
+
+é usado pra ver se um valor pertence a um conjunto (membership test) ('valor' in variavel)
+, sets são muito mais eficientes nisso do que listas e tuples
+
+outra ação que sets são otimizados para realizar é de checar que valores eles compartilham ou não com outros sets
+para checar valores iguais usamos .intersection
+cs_courses = {'History', 'Math', 'Physics', 'CompSci', 'Math'}
+other_courses = {'Math', 'geography', 'physicalEd', 'portuguese'}
+
+print(cs_courses.intersection(other_courses))-> {'Math'}
+
+a diferença usamos .difference
+print(cs_courses.difference(other_courses))-> {'Physics', 'History', 'CompSci'}
+
+podemos combinar os valores dos dois sets usando .union
+print(cs_courses.union(other_courses))-> {'CompSci', 'Physics', 'physicalEd', 'portuguese', 'Math', 'geography', 'History'}
+
+
+Criação de listas, tuples e sets vazios
+# Empty Lists
+empty_list = []
+empty_list = list()
+
+# Empty Tuples
+empty_tuple = ()
+empty_tuple = tuple()
+
+# Empty Sets
+empty_set = {} # Não podemos usar assim. Isso não é um set vazio, é um dictionary vazio
+empty_set = set()
+
+
+
+
+
+
+dictionaries
+https://www.w3schools.com/python/python_dictionaries.asp
+dictionaries nos permitem trabalhar com pares de key:value
+
+student = {'name': 'John', 'age': 25, 'courses': ['Math', 'CompSci']}
+
+as chaves iniciam o dicionario. name é uma key, John é um value.
+As outras "coisas" da variavel studant também são key:value
+As keys acima são todas strings, mas elas podem ser qualquer dado imutavel
+https://www.tutorialspoint.com/which-data-types-are-immutable-in-python
+
+courses = ['history', 'math', 'phisics', 'compSci']
+
+student = {'name': 'John', 'age': 25, 'courses': courses}
+pode passar uma variavel lista como valor de uma key
+
+chamar uma chave inexistente retorna um erro, pode não ser o que queremos, então pode-se usar o metodo get do dicionario
+print(student.get('name'))-> John
+print(student.get('phone'))-> None
+assim ele retorna None ao invés de erro
+se não quiser que volte o none podemos passar um segundo argumento no .get, que vai aparecer no lugar do none
+print(student.get('name', 'No key found'))  -> John
+print(student.get('phone', 'No key found')) -> No key found
+aqui está voltando uma string, mas não precisa ser, pode ser outro tipo de valor, até mesmo uma variável
+print(student.get('phone', courses)) -> ['history', 'math', 'phisics', 'compSci']
+
+
+pode ser adicionada uma chave nova caso necessario
+student['phone'] = '3625-3625'
+
+print(student.get('phone', 'No key found')) -> 3625-3625
+
+
+para mudar um valor podemos fazer 
+student['name'] = 'Matt'
+ou usar metodo .update, que é especialmente útil para atualizar varios valores de uma vez
+.update recebe um dicionario como argumento, para mudar ou adicionar o que quer
+
+student.update({'name': 'Lucas', 'age': '30', 'id': '1'})
+print(student) -> {'name': 'Lucas', 'age': '30', 'courses': ['Math', 'CompSci'], 'phone': '3625-3625', 'id': '1'}
+
+
+pra remover usamos del
+
+del student['id']
+print(student) -> {'name': 'Lucas', 'age': '30', 'courses': ['Math', 'CompSci'], 'phone': '3625-3625'}
+
+ou usamos pop, que como observamos na lista, retorna o valor que foi retirado. Podendo ser armazenado em uma variavel
+phone = student.pop('phone')
+print(student) -> {'name': 'Lucas', 'age': '30', 'courses': ['Math', 'CompSci']}
+print(phone) -> 3625-3625
+
+
+
+
+print(len(student)) mostra o numero de chaves que nosso dicionario possui (-> 3)
+
+print(student.keys()) mostra o nome das chaves que o dicionario possui (-> dict_keys(['name', 'age', 'courses']))
+
+print(student.values()) mostra os valores do dicionario (-> dict_values(['Lucas', '30', ['Math', 'CompSci']]))
+
+print(student.items()) mostra as keys:values do dicionario (-> dict_items([('name', 'Lucas'), ('age', '30'), ('courses', ['Math', 'CompSci'])]))
+
+
+pra usar loop pra ver oque tem em um dicionario é preciso do .items se quisermos ver os valores também
+só com student ele só mostra as keys
+for key in student:
+    print(key)
+ -> name
+	age
+	courses
+
+
+for key in student.items():
+    print(key)
+ -> ('name', 'Lucas')
+	('age', '30')
+	('courses', ['Math', 'CompSci'])    (curiosidade, esses valores são tuples, podemos ver com print(type(key)))
+
+como o items vem em par de valores, usamos outra variavel para os valores também
+
+for key, value in student.items():
+    print(key, value)
+ -> name Lucas
+	age 30
+	courses ['Math', 'CompSci']
+
+
+
+
+
+
+
+
+
+
+# Comparisons:
+# Equal:            ==
+# Not Equal:        !=
+# Greater Than:     >
+# Less Than:        <
+# Greater or Equal: >=
+# Less or Equal:    <=
+# Object Identity:  is (https://www.w3schools.com/python/ref_keyword_is.asp)
+#                   \/
+# The 'is' keyword is used to test if two variables refer to the same object.
+# The test returns True if the two objects are the same object.
+# The test returns False if they are not the same object, even if the two objects are 100% equal.
+# Use the == operator to test if two variables are equal.
+
+# language = "  PyTHON   "
+language = "  JAva   "
+# language = "C"
+
+
+# if e elif
+if language.lower().strip() == "python":
+    print("Linguagem é python")
+elif language.lower().strip() == "java":
+    print("Linguagem é java")
+else:
+    print("Sem resultados")
+
+
+# Python não possui switch case
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
