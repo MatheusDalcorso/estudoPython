@@ -77,7 +77,8 @@
     # Zero of any numeric type
     # Any empty sequence. For example, '', (), [].
     # Any empty mapping. For example, {}.    
-# (A mapping is a collection that allows you to look up a key and retrieve its value. https://realpython.com/python-mappings/)
+# (A mapping is a collection that allows you to look up a key and retrieve its value. https://realpython.com/python-mappings/
+# https://docs.python.org/3/glossary.html#term-mapping)
 
 # Todo resto é True
 
