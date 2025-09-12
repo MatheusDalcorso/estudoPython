@@ -1,3 +1,8 @@
+Notas jogadas sem muita organização, provavelmente não fazem muito sentido para ninguém além de mim. Futuramente pretendo organizar informações no arquivo pythonNotebook.ipynb.
+
+Anotações tiradas de varios lugares, mas a fonte principal é o canal do Corey Schafer no youtube e o livro Python Crash Course, 3rd Edition - A Hands-On, Project-Based do Eric Matthes
+
+
 comentário em python é criado com #
 
 #cria variável
@@ -628,7 +633,21 @@ else:
 # Python não possui switch case
 
 
+# Além dessas comparações que coloquei acima, tamém temos operações booleanas que podemos usar
+# Elas são: and (&&), or (||) e not (!)
 
+user = 'admin'
+logged_in = False
+
+if user == 'admin' or logged_in:
+    print('Página do Admin')
+else:
+    print('Acesso negado')
+
+if user == 'admin' and not (not logged_in):
+    print('Página do Admin')
+else:
+    print('Acesso negado')
 
 
 
