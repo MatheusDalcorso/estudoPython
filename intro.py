@@ -84,8 +84,6 @@
 
 
 
-
-
 # Mutable
 # list_1 = ['History', 'Math', 'Physics', 'CompSci']
 # list_2 = list_1
@@ -128,8 +126,6 @@
 
 
 
-
-
 # # Empty Lists
 # empty_list = []
 # empty_list = list()
@@ -141,8 +137,6 @@
 # # Empty Sets
 # empty_set = {} # Não podemos usar assim. Isso não é um set vazio, é um dictionary vazio
 # empty_set = set()
-
-
 
 
 
