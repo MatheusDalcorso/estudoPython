@@ -82,26 +82,69 @@
 
 # Todo resto é True
 
-condition = [""]
+# condition = [""]
 
-if condition:
-    print('Evaluated to True')
-else:
-    print('Evaluated to False')
+# if condition:
+#     print('Evaluated to True')
+# else:
+#     print('Evaluated to False')
 
 #exemplo de uso, preciso checar alguma função retornou uma string com valores
-string = ''
+# string = ''
 
-if string:
-    print('String com algum valor')
-else:
-    print('String vazia')
+# if string:
+#     print('String com algum valor')
+# else:
+#     print('String vazia')
  
 
 
 
 
+# numbers = {1, 2, 3, 'x', 4, 5, 'teste', 'valor'}
+#break e continue
+# print(numbers)
+# for number in numbers:
+#     if number == 3:
+#         print('achou o 3 e dá break')
+#         break
+#     print(number)
+# print('')
+# print(numbers)
+# for number in numbers:
+#     if number == 5:
+#         print('achou o 5 e continua')
+#         continue
+#     print(number)
 
 
+#for aninhado (nested)
+# nums = [1, 2, 3]
+# for num in nums:
+#     for char in 'abc':
+#         print(num, char)
 
 
+#função range, basicamente vai repetir o loop o numero de vezes que passarmos. Começa do 0 e vai até o escolhido, mas não inclui ele (range(10) vai do 0 até 9)
+# for i in range(10):
+#     print(i)
+#podemos alterar para começar em um número especifico se não quisermos que começe no 0
+# for i in range(20, 31):
+#     print(i)
+
+
+x = 0
+
+# while x < 10:
+#     print(x)
+#     x += 1
+
+while True:
+    if x == 5:
+        break
+    print(x)
+    x += 1
+
+# lembrando que python não tem do while, se precisar usar pode ser colocado um true na condição do while e depois arrumar a lógica nele para parar no momento certo
+
+#Python não suporta incremento com ++ também...
