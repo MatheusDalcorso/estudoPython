@@ -69,4 +69,36 @@ import random
 
 random_course = random.choice(courses)
 
-print(random_course) #-> imprime um valor randomico da variavel courses
+# print(random_course) #-> imprime um valor randomico da variavel courses
+
+# import math
+
+# rads = math.radians(90)
+
+# print(rads)
+# print(math.sin(rads))
+
+
+# import datetime, calendar
+
+# today = datetime.datetime.today()
+# print(today)
+
+# print(calendar.isleap(2020))
+
+import os
+# https://docs.python.org/pt-br/3.13/library/os.html
+
+print(os.getcwd())#-> C:\estudoPython (getcwd == get current working diretory)
+
+# essas bibliotecas padrões são arquivos python, pra ver a sua localização no pc podemos usar '.__file__'
+# isso é o 'dunder file', dunder é o underscore duplo
+print(os.__file__)
+print(random.__file__)
+print(fm.__file__)
+
+x, y, z = 1, 2, 3
+
+print(x)
+print(y)
+print(z)
