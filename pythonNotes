@@ -273,7 +273,7 @@ print(courses[0]) -> history
 também pode ser acessado com numero negativo, ai começa pelo final da lista
 print(courses[-1]) -> compSci
 print(courses[-4]) -> history
--5 no caso da erro
+-5 no caso da erro pois é maior que a lista
 
 é pratico pra pegar o ultimo item da lista, pois mesmo q adicionem coisas novas o -1 sempre será o ultimo item
 
@@ -649,6 +649,17 @@ elif language.lower().strip() == "java":
 else:
     print("Sem resultados")
 
+pra comparar se um numero está entre um e outro podemos escrever assim: x<n<y
+
+if n % 2 != 0:
+    print('Weird')
+elif 2 <= n <= 5:
+    print('Not Weird')
+elif 6 <= n <= 20:
+    print('Weird')
+elif n > 20:
+    print('Not Weird')
+
 
 # Python não possui switch case
 
@@ -669,7 +680,99 @@ if user == 'admin' and not (not logged_in):
 else:
     print('Acesso negado')
 
+# a = [1, 2, 3]
+# b = [1, 2, 3]
+# c = a
+# print("a = [1, 2, 3]\nb = [1, 2, 3]\nc = a")
+# print('')
+# print('Teste com "b"')
+# print(f"a == b : {a == b}")
+# print(f"a is b : {a is b}")
+# print(f"id 'a': {id(a)} \nid 'b': {id(b)}")
+# print('')
+# print('Teste com "c"')
+# print(f"a == c : {a == c}")
+# print(f"a is c : {a is c}")
+# print(f"id 'a': {id(a)} \nid 'c': {id(c)}")
 
+# a comparação com is funciona basicamente como id(variavel1) == id(variavel2)
+
+
+# False Values:
+    # False
+    # None     (Python does not have a literal 'null' keyword. None é basicamente o null de python)
+    # Zero of any numeric type
+    # Any empty sequence. For example, '', (), [].
+    # Any empty mapping. For example, {}.    
+# (A mapping is a collection that allows you to look up a key and retrieve its value. https://realpython.com/python-mappings/
+# https://docs.python.org/3/glossary.html#term-mapping)
+
+# Todo resto é True
+
+# condition = [""]
+
+# if condition:
+#     print('Evaluated to True')
+# else:
+#     print('Evaluated to False')
+
+#exemplo de uso, preciso checar alguma função retornou uma string com valores
+# string = ''
+
+# if string:
+#     print('String com algum valor')
+# else:
+#     print('String vazia')
+
+
+
+# numbers = {1, 2, 3, 'x', 4, 5, 'teste', 'valor'}
+#break e continue
+# print(numbers)
+# for number in numbers:
+#     if number == 3:
+#         print('achou o 3 e dá break')
+#         break
+#     print(number)
+# print('')
+# print(numbers)
+# for number in numbers:
+#     if number == 5:
+#         print('achou o 5 e continua')
+#         continue
+#     print(number)
+
+
+#for aninhado (nested)
+# nums = [1, 2, 3]
+# for num in nums:
+#     for char in 'abc':
+#         print(num, char)
+
+
+#função range, basicamente vai repetir o loop o numero de vezes que passarmos. Começa do 0 e vai até o escolhido, mas não inclui ele (range(10) vai do 0 até 9)
+# for i in range(10):
+#     print(i)
+#podemos alterar para começar em um número especifico se não quisermos que começe no 0
+# for i in range(20, 31):
+#     print(i)
+
+
+x = 0
+
+# while x < 10:
+#     print(x)
+#     x += 1
+
+while True:
+    if x == 5:
+        break
+    print(x)
+    x += 1
+
+# lembrando que python não tem do while, se precisar usar pode ser colocado um true na condição do while e depois arrumar a lógica nele para parar no momento certo
+
+#Python não suporta incremento com ++ também...
 
 
 

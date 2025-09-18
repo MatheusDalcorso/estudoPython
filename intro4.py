@@ -97,8 +97,3 @@ print(os.__file__)
 print(random.__file__)
 print(fm.__file__)
 
-x, y, z = 1, 2, 3
-
-print(x)
-print(y)
-print(z)
