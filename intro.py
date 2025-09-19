@@ -139,8 +139,63 @@
 # empty_set = set()
 
 
+# List comprehension
+# É uma maneira mais compacta de criar uma lista em python. Ao invés de usar um loop e colocar a lista dentro fazendo append, a gente coloca esse loop dentro da lista pra criar ela.
+# "List comprehensions in Python provide a concise way to create lists by embedding a loop and optional conditional logic in a single line." (https://realpython.com/list-comprehension-python/)
+
+# ex de como seria feito sem a list comprehension
+nums = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] # pra usar nos exemplos
+
+# my_list = []
+
+# for n in nums:
+#     my_list.append(n)
+
+# print(my_list)
+
+#ex com o list comprehension
+# my_list = [n for n in nums]
+
+# print(my_list)
 
 
+# outros exemplos
+# lista com valores de n x n (numero ao quadrado)
+# sem list comprehension
+# my_list = []
+# for n in nums:
+#     my_list.append(n * n)
+# print(my_list)
+
+# com list comprehension
+# my_list = [n*n for n in nums]
+# print(my_list)
+
+# com map + lambda (usando map e lambda a crição da lista fica em uma linha só mas a sua leitura não é facil como com a list comprehension, então é preferivel usar comprehension)
+# my_list = map(lambda n: n*n, nums)
+# print(list(my_list))
+
+# n pra cada n in nuns se n for par
+# sem list comprehension
+# my_list = []
+
+# for n in nums:
+#     if n % 2 == 0:
+#         my_list.append(n)
+# print(my_list)
+
+# com list comprehension
+# my_list = [n for n in nums if n % 2 == 0]
+# print(my_list)
+
+# com filter + lambda (mesmo problema com o map + lambda, um iniciante não vai conseguir ler essa função, list comprehension é muito mais legivel)
+# my_list = filter(lambda n: n % 2 ==0, nums)
+# print(list(my_list))
+
+
+# dictionaries
+# https://www.w3schools.com/python/python_dictionaries.asp
+# dictionaries nos permitem trabalhar com pares de key:value
 
 message = "Hello, world!"
 courses = ['history', 'math', 'phisics', 'compSci']
@@ -190,7 +245,7 @@ phone = student.pop('phone')
 # for key in student.items():
 #     print(type(key))
 
-for key, value in student.items():
-    print(key, value)
+# for key, value in student.items():
+    # print(key, value)
 
 
